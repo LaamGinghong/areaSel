@@ -8,15 +8,11 @@ import {StoreService} from './store.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  allData: Array<object>;
 
   constructor(private appService: AppService,
               public storeService: StoreService) {
   }
 
   ngOnInit() {
-    this.appService.getData().subscribe((data: Array<object>) => {
-      this.allData = data;
-    });
   }
 }

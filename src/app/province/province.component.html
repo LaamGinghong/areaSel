@@ -5,7 +5,7 @@
          placeholder="请选择省份">
   <div *ngIf="storeService.provinceBox">
     <ul>
-      <li *ngFor="let item of provinceData" (click)="selectItem(item)">{{item['name']}}</li>
+      <li *ngFor="let item of storeService.allData" (click)="selectItem(item)">{{item['name']}}</li>
     </ul>
   </div>
 </div>

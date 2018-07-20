@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {StoreService} from '../store.service';
+import {BroadcastService} from '../broadcast.service';
 
 @Component({
   selector: 'app-province',
@@ -7,16 +8,10 @@ import {StoreService} from '../store.service';
   styleUrls: ['./province.component.css']
 })
 export class ProvinceComponent implements OnInit {
-  provinceData: Array<object>;
   inputValue: string;
 
-  @Input() set allData(val) {
-    if (val) {
-      this.provinceData = val;
-    }
-  }
-
-  constructor(public storeService: StoreService) {
+  constructor(public storeService: StoreService,
+              private broadcastService: BroadcastService) {
   }
 
   ngOnInit() {
@@ -24,6 +19,7 @@ export class ProvinceComponent implements OnInit {
 
   selectItem(val: { name: string, code: string, children: Array<object> }) {
     this.inputValue = val.name;
+    this.broadcastService.broadcastSubject(val.children);
   }
 
   stopBubble(e) {
