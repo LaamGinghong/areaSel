@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {AppService} from './app.service';
 
 @Component({
   selector: 'app-root',
@@ -6,10 +7,14 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  allData: Array<object>;
 
-  constructor() {
+  constructor(private appService: AppService) {
   }
 
   ngOnInit() {
+    this.appService.getData().subscribe((data: Array<object>) => {
+      this.allData = data;
+    });
   }
 }
