@@ -23,4 +23,8 @@ export class ProvinceComponent implements OnInit {
     this.inputValue = val.name;
     this.broadcastService.broadcastProvince(val.children);
   }
+
+  clearInput(type) {
+    this.inputValue = this.appService.clearInput(type);
+  }
 }

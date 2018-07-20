@@ -14,7 +14,7 @@ export class CityComponent implements OnInit {
 
   constructor(private broadcastService: BroadcastService,
               public storeService: StoreService,
-              public appService:AppService) {
+              public appService: AppService) {
   }
 
   ngOnInit() {
@@ -28,5 +28,13 @@ export class CityComponent implements OnInit {
   selectItem(val: { name: string, code: string, children: Array<object> }) {
     this.inputValue = val.name;
     this.broadcastService.broadcastCity(val.children);
+  }
+
+  clearInput(type) {
+    this.inputValue = this.appService.clearInput(type);
+  }
+
+  openBox(type: string) {
+    this.appService.openBox(type, this.cityData);
   }
 }

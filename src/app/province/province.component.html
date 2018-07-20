@@ -4,6 +4,7 @@
          (focus)="storeService.setProvinceBoxStatus(true)"
          (click)="appService.stopBubble($event)"
          placeholder="请选择省份">
+  <span class="close" (click)="clearInput('province')">*</span>
   <div *ngIf="storeService.provinceBox">
     <ul>
       <li *ngFor="let item of storeService.allData" (click)="selectItem(item)">{{item['name']}}</li>

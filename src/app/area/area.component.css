@@ -5,6 +5,7 @@
   display: inline-block;
   vertical-align: top;
   margin: 0 30px;
+  position: relative;
 }
 
 #area > input {
@@ -28,4 +29,12 @@
 
 #area li:hover {
   background: rgba(0, 0, 0, .2);
+}
+
+.close {
+  position: absolute;
+  right: 10px;
+  top: 23px;
+  font-size: 30px;
+  cursor: pointer;
 }

@@ -20,13 +20,15 @@ export class StreetComponent implements OnInit {
   ngOnInit() {
     this.broadcastService.subjectArea$.subscribe((data: Array<object>) => {
       this.inputValue = '';
-      console.log(data);
       this.streetData = data;
     });
   }
 
   selectItem(val: { name: string, code: string, children: Array<object> }) {
     this.inputValue = val.name;
-    // this.broadcastService.broadcastArea(val.children);
+  }
+
+  clearInput(type) {
+    this.inputValue = this.appService.clearInput(type);
   }
 }

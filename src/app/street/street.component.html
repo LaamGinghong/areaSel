@@ -4,6 +4,7 @@
          [(ngModel)]="inputValue"
          (focus)="storeService.setStreetBoxStatus(true)"
          (click)="appService.stopBubble($event)">
+  <span class="close" (click)="clearInput('street')">*</span>
   <div *ngIf="storeService.streetBoxStatus">
     <ul>
       <li *ngFor="let item of streetData" (click)="selectItem(item)">{{item['name']}}</li>
