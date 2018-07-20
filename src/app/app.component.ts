@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AppService} from './app.service';
+import {StoreService} from './store.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,8 @@ import {AppService} from './app.service';
 export class AppComponent implements OnInit {
   allData: Array<object>;
 
-  constructor(private appService: AppService) {
+  constructor(private appService: AppService,
+              private storeService: StoreService) {
   }
 
   ngOnInit() {

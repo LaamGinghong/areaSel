@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {StoreService} from '../store.service';
 
 @Component({
   selector: 'app-province',
@@ -12,14 +13,16 @@ export class ProvinceComponent implements OnInit {
   @Input() set allData(val) {
     if (val) {
       this.provinceData = val;
-      console.log(this.provinceData);
     }
   }
 
-  constructor() {
+  constructor(public storeService: StoreService) {
   }
 
   ngOnInit() {
   }
 
+  selectItem(val: { name: string, code: string, children: Array<object> }) {
+    this.inputValue = val.name;
+  }
 }

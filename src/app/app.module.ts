@@ -5,6 +5,7 @@ import {AppComponent} from './app.component';
 import {ProvinceComponent} from './province/province.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import {MobxAngularModule} from 'mobx-angular';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import {FormsModule} from '@angular/forms';
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MobxAngularModule
   ],
   providers: [],
   bootstrap: [AppComponent]
