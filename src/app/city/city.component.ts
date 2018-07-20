@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {BroadcastService} from '../broadcast.service';
 import {StoreService} from '../store.service';
+import {AppService} from '../app.service';
 
 @Component({
   selector: 'app-city',
@@ -12,7 +13,8 @@ export class CityComponent implements OnInit {
   cityData: Array<object>;
 
   constructor(private broadcastService: BroadcastService,
-              public storeService: StoreService) {
+              public storeService: StoreService,
+              public appService:AppService) {
   }
 
   ngOnInit() {
@@ -22,9 +24,6 @@ export class CityComponent implements OnInit {
     });
   }
 
-  stopBubble(e) {
-    e.stopPropagation();
-  }
 
   selectItem(val: { name: string, code: string, children: Array<object> }) {
     this.inputValue = val.name;

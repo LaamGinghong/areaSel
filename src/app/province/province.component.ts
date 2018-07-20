@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {StoreService} from '../store.service';
 import {BroadcastService} from '../broadcast.service';
+import {AppService} from '../app.service';
 
 @Component({
   selector: 'app-province',
@@ -11,7 +12,8 @@ export class ProvinceComponent implements OnInit {
   inputValue: string;
 
   constructor(public storeService: StoreService,
-              private broadcastService: BroadcastService) {
+              private broadcastService: BroadcastService,
+              public appService: AppService) {
   }
 
   ngOnInit() {
@@ -20,9 +22,5 @@ export class ProvinceComponent implements OnInit {
   selectItem(val: { name: string, code: string, children: Array<object> }) {
     this.inputValue = val.name;
     this.broadcastService.broadcastProvince(val.children);
-  }
-
-  stopBubble(e) {
-    e.stopPropagation();
   }
 }

@@ -1,3 +1,12 @@
-<p>
-  area works!
-</p>
+<div id="area">
+  区/县：
+  <input placeholder="请选择区/县"
+         [(ngModel)]="inputValue"
+         (focus)="storeService.setAreaBoxStatus(true)"
+         (click)="appService.stopBubble($event)">
+  <div *ngIf="storeService.areaBoxStatus">
+    <ul>
+      <li *ngFor="let item of areaData" (click)="selectItem(item)">{{item['name']}}</li>
+    </ul>
+  </div>
+</div>

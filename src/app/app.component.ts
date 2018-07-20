@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {AppService} from './app.service';
 import {StoreService} from './store.service';
 
 @Component({
@@ -18,5 +17,6 @@ export class AppComponent implements OnInit {
   closeBox(status) {
     this.storeService.setProvinceBoxStatus(status);
     this.storeService.setCityBoxStatus(status);
+    this.storeService.setAreaBoxStatus(status);
   }
 }

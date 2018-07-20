@@ -7,6 +7,7 @@ import {Subject} from 'rxjs';
 export class BroadcastService {
   subjectProvince$ = new Subject();
   subjectCity$ = new Subject();
+  subjectArea$ = new Subject();
 
   constructor() {
   }
@@ -17,5 +18,9 @@ export class BroadcastService {
 
   broadcastCity(content) {
     this.subjectCity$.next(content);
+  }
+
+  broadcastArea(content) {
+    this.subjectArea$.next(content);
   }
 }

@@ -9,6 +9,7 @@ export class StoreService {
   @observable allData: Array<object>;
   @observable provinceBox = false;
   @observable cityBox = false;
+  @observable areaBox = false;
 
   constructor(private appService: AppService) {
     autorun(() => {
@@ -32,5 +33,13 @@ export class StoreService {
 
   @action setCityBoxStatus(status) {
     this.cityBox = status;
+  }
+
+  @computed get areaBoxStatus() {
+    return this.areaBox;
+  }
+
+  @action setAreaBoxStatus(status) {
+    this.areaBox = status;
   }
 }

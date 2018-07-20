@@ -2,7 +2,7 @@
   省/自治区/直辖市：
   <input [(ngModel)]="inputValue"
          (focus)="storeService.setProvinceBoxStatus(true)"
-         (click)="stopBubble($event)"
+         (click)="appService.stopBubble($event)"
          placeholder="请选择省份">
   <div *ngIf="storeService.provinceBox">
     <ul>
