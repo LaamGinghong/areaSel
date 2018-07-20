@@ -18,5 +18,6 @@ export class AppComponent implements OnInit {
     this.storeService.setProvinceBoxStatus(status);
     this.storeService.setCityBoxStatus(status);
     this.storeService.setAreaBoxStatus(status);
+    this.storeService.setStreetBoxStatus(status);
   }
 }

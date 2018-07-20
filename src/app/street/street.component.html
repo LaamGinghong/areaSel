@@ -1,0 +1,12 @@
+<div id="street">
+  街道/村庄：
+  <input placeholder="请选择街道/村庄"
+         [(ngModel)]="inputValue"
+         (focus)="storeService.setStreetBoxStatus(true)"
+         (click)="appService.stopBubble($event)">
+  <div *ngIf="storeService.streetBoxStatus">
+    <ul>
+      <li *ngFor="let item of streetData" (click)="selectItem(item)">{{item['name']}}</li>
+    </ul>
+  </div>
+</div>

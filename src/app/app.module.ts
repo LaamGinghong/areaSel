@@ -8,13 +8,15 @@ import {FormsModule} from '@angular/forms';
 import {MobxAngularModule} from 'mobx-angular';
 import { CityComponent } from './city/city.component';
 import { AreaComponent } from './area/area.component';
+import { StreetComponent } from './street/street.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProvinceComponent,
     CityComponent,
-    AreaComponent
+    AreaComponent,
+    StreetComponent
   ],
   imports: [
     BrowserModule,
