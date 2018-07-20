@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
   allData: Array<object>;
 
   constructor(private appService: AppService,
-              private storeService: StoreService) {
+              public storeService: StoreService) {
   }
 
   ngOnInit() {

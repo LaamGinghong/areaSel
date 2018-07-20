@@ -1,8 +1,8 @@
 <div id="province">
-  <input [(ngModel)]="inputValue">
-  <div>
+  <input [(ngModel)]="inputValue" (focus)="storeService.setProvinceBoxStatus(true)" (click)="stopBubble($event)">
+  <div *ngIf="storeService.provinceBox">
     <ul>
-      <li *ngFor="let item of provinceData">{{item['name']}}</li>
+      <li *ngFor="let item of provinceData" (click)="selectItem(item)">{{item['name']}}</li>
     </ul>
   </div>
 </div>
