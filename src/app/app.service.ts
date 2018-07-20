@@ -25,22 +25,34 @@ export class AppService {
   openBox(type: string, data: Array<object>) {
     switch (type) {
       case 'city':
-        if (data.length) {
-          this.storeService.setCityBoxStatus(true);
+        if (data) {
+          if (data.length) {
+            this.storeService.setCityBoxStatus(true);
+          } else {
+            alert('请选择省/自治区/直辖市！');
+          }
         } else {
           alert('请选择省/自治区/直辖市！');
         }
         break;
       case 'area':
-        if (data.length) {
-          this.storeService.setAreaBoxStatus(true);
+        if (data) {
+          if (data.length) {
+            this.storeService.setAreaBoxStatus(true);
+          } else {
+            alert('请选择市！');
+          }
         } else {
           alert('请选择市！');
         }
         break;
       case 'street':
-        if (data.length) {
-          this.storeService.setStreetBoxStatus(true);
+        if (data) {
+          if (data.length) {
+            this.storeService.setStreetBoxStatus(true);
+          } else {
+            alert('请选择区/县');
+          }
         } else {
           alert('请选择区/县');
         }
