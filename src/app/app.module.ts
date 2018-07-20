@@ -6,11 +6,13 @@ import {ProvinceComponent} from './province/province.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {MobxAngularModule} from 'mobx-angular';
+import { CityComponent } from './city/city.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProvinceComponent
+    ProvinceComponent,
+    CityComponent
   ],
   imports: [
     BrowserModule,

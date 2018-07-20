@@ -1,5 +1,8 @@
 <div id="province">
-  <input [(ngModel)]="inputValue" (focus)="storeService.setProvinceBoxStatus(true)" (click)="stopBubble($event)">
+  <input [(ngModel)]="inputValue"
+         (focus)="storeService.setProvinceBoxStatus(true)"
+         (click)="stopBubble($event)"
+         placeholder="请选择省份">
   <div *ngIf="storeService.provinceBox">
     <ul>
       <li *ngFor="let item of provinceData" (click)="selectItem(item)">{{item['name']}}</li>
