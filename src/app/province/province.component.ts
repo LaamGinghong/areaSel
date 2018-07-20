@@ -19,7 +19,7 @@ export class ProvinceComponent implements OnInit {
 
   selectItem(val: { name: string, code: string, children: Array<object> }) {
     this.inputValue = val.name;
-    this.broadcastService.broadcastSubject(val.children);
+    this.broadcastService.broadcastProvince(val.children);
   }
 
   stopBubble(e) {

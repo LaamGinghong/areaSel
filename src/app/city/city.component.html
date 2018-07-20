@@ -1,4 +1,11 @@
 <div id="city">
   <input placeholder="请选择市"
-         [(ngModel)]="inputValue">
+         [(ngModel)]="inputValue"
+         (focus)="storeService.setCityBoxStatus(true)"
+         (click)="stopBubble($event)">
+  <div *ngIf="storeService.cityBoxStatus">
+    <ul>
+      <li *ngFor="let item of cityData" (click)="selectItem(item)">{{item['name']}}</li>
+    </ul>
+  </div>
 </div>

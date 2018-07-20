@@ -5,12 +5,17 @@ import {Subject} from 'rxjs';
   providedIn: 'root'
 })
 export class BroadcastService {
-  subject$ = new Subject();
+  subjectProvince$ = new Subject();
+  subjectCity$ = new Subject();
 
   constructor() {
   }
 
-  broadcastSubject(content) {
-    this.subject$.next(content);
+  broadcastProvince(content) {
+    this.subjectProvince$.next(content);
+  }
+
+  broadcastCity(content) {
+    this.subjectCity$.next(content);
   }
 }

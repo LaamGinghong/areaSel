@@ -8,6 +8,7 @@ import {AppService} from './app.service';
 export class StoreService {
   @observable allData: Array<object>;
   @observable provinceBox = false;
+  @observable cityBox = false;
 
   constructor(private appService: AppService) {
     autorun(() => {
@@ -23,5 +24,13 @@ export class StoreService {
 
   @action setProvinceBoxStatus(status) {
     this.provinceBox = status;
+  }
+
+  @computed get cityBoxStatus() {
+    return this.cityBox;
+  }
+
+  @action setCityBoxStatus(status) {
+    this.cityBox = status;
   }
 }

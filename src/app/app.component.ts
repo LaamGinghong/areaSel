@@ -9,10 +9,14 @@ import {StoreService} from './store.service';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private appService: AppService,
-              public storeService: StoreService) {
+  constructor(public storeService: StoreService) {
   }
 
   ngOnInit() {
+  }
+
+  closeBox(status) {
+    this.storeService.setProvinceBoxStatus(status);
+    this.storeService.setCityBoxStatus(status);
   }
 }
