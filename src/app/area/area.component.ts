@@ -23,6 +23,7 @@ export class AreaComponent implements OnInit {
     this.broadcastService.subjectCity$.subscribe((data: Array<object>) => {
       this.inputValue = '';
       this.areaData = data;
+      this.broadcastService.broadcastArea([]);
     });
   }
 

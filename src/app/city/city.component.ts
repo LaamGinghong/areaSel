@@ -20,9 +20,10 @@ export class CityComponent implements OnInit {
 
   ngOnInit() {
     this.broadcastService.subjectProvince$.subscribe((data: Array<object>) => {
-      console.log(data);
       this.inputValue = '';
       this.cityData = data;
+      this.broadcastService.broadcastCity([]);
+      this.broadcastService.broadcastArea([]);
     });
   }
 
