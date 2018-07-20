@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {StoreService} from './store.service';
+import {AppService} from './app.service';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +9,14 @@ import {StoreService} from './store.service';
 })
 export class AppComponent implements OnInit {
 
-  constructor(public storeService: StoreService) {
+  constructor(public storeService: StoreService,
+              private appService: AppService) {
   }
 
   ngOnInit() {
+    this.appService.getData().subscribe((data: Array<object>) => {
+      this.storeService.allData = data;
+    });
   }
 
   closeBox(status) {

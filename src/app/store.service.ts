@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
-import {observable, computed, action, autorun} from 'mobx';
-import {AppService} from './app.service';
+import {observable, computed, action} from 'mobx';
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +11,7 @@ export class StoreService {
   @observable areaBox = false;
   @observable streetBox = false;
 
-  constructor(private appService: AppService) {
-    autorun(() => {
-      this.appService.getData().subscribe((data: Array<object>) => {
-        this.allData = data;
-      });
-    });
+  constructor() {
   }
 
   @computed get provinceBoxStatus() {
