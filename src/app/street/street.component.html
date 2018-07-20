@@ -1,8 +1,8 @@
 <div id="street">
-  街道/村庄：
-  <input placeholder="请选择街道/村庄"
+  街道/镇：
+  <input placeholder="请选择街道/镇" #street
          [(ngModel)]="inputValue"
-         (focus)="storeService.setStreetBoxStatus(true)"
+         (focus)="openBox('street')"
          (click)="appService.stopBubble($event)">
   <span class="close" (click)="clearInput('street')">*</span>
   <div *ngIf="storeService.streetBoxStatus">

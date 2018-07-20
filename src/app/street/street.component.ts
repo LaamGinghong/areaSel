@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {StoreService} from '../store.service';
 import {AppService} from '../app.service';
 import {BroadcastService} from '../broadcast.service';
@@ -11,6 +11,8 @@ import {BroadcastService} from '../broadcast.service';
 export class StreetComponent implements OnInit {
   inputValue: string;
   streetData: Array<object>;
+
+  @ViewChild('street') streetDom: ElementRef;
 
   constructor(public storeService: StoreService,
               public appService: AppService,
@@ -30,5 +32,10 @@ export class StreetComponent implements OnInit {
 
   clearInput(type) {
     this.inputValue = this.appService.clearInput(type);
+  }
+
+  openBox(type) {
+    this.appService.openBox(type, this.streetData);
+    this.streetDom.nativeElement.blur();
   }
 }

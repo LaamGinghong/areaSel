@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {BroadcastService} from '../broadcast.service';
 import {StoreService} from '../store.service';
 import {AppService} from '../app.service';
@@ -11,6 +11,7 @@ import {AppService} from '../app.service';
 export class CityComponent implements OnInit {
   inputValue: string;
   cityData: Array<object>;
+  @ViewChild('city') cityDom: ElementRef;
 
   constructor(private broadcastService: BroadcastService,
               public storeService: StoreService,
@@ -19,6 +20,7 @@ export class CityComponent implements OnInit {
 
   ngOnInit() {
     this.broadcastService.subjectProvince$.subscribe((data: Array<object>) => {
+      console.log(data);
       this.inputValue = '';
       this.cityData = data;
     });
@@ -36,5 +38,6 @@ export class CityComponent implements OnInit {
 
   openBox(type: string) {
     this.appService.openBox(type, this.cityData);
+    this.cityDom.nativeElement.blur();
   }
 }

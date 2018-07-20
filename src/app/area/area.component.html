@@ -1,8 +1,8 @@
 <div id="area">
   区/县：
-  <input placeholder="请选择区/县"
+  <input placeholder="请选择区/县" #area
          [(ngModel)]="inputValue"
-         (focus)="storeService.setAreaBoxStatus(true)"
+         (focus)="openBox('area')"
          (click)="appService.stopBubble($event)">
   <span class="close" (click)="clearInput('area')">*</span>
   <div *ngIf="storeService.areaBoxStatus">

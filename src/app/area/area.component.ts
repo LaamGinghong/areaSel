@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {BroadcastService} from '../broadcast.service';
 import {StoreService} from '../store.service';
 import {AppService} from '../app.service';
@@ -11,6 +11,8 @@ import {AppService} from '../app.service';
 export class AreaComponent implements OnInit {
   inputValue: string;
   areaData: Array<object>;
+
+  @ViewChild('area') areaDom: ElementRef;
 
   constructor(private broadcastService: BroadcastService,
               public storeService: StoreService,
@@ -31,5 +33,10 @@ export class AreaComponent implements OnInit {
 
   clearInput(type) {
     this.inputValue = this.appService.clearInput(type);
+  }
+
+  openBox(type) {
+    this.appService.openBox(type, this.areaData);
+    this.areaDom.nativeElement.blur();
   }
 }

@@ -10,7 +10,8 @@ export class AppService {
   URL = 'assets/pcas-code.json';
 
   constructor(private http: HttpClient,
-              private broadcastService: BroadcastService) {
+              private broadcastService: BroadcastService,
+              private storeService: StoreService) {
   }
 
   getData() {
@@ -19,6 +20,32 @@ export class AppService {
 
   stopBubble(e) {
     e.stopPropagation();
+  }
+
+  openBox(type: string, data: Array<object>) {
+    switch (type) {
+      case 'city':
+        if (data) {
+          this.storeService.setCityBoxStatus(true);
+        } else {
+          alert('请选择省/自治区/直辖市！');
+        }
+        break;
+      case 'area':
+        if (data) {
+          this.storeService.setAreaBoxStatus(true);
+        } else {
+          alert('请选择市！');
+        }
+        break;
+      case 'street':
+        if (data) {
+          this.storeService.setStreetBoxStatus(true);
+        } else {
+          alert('请选择区/县')
+        }
+        break;
+    }
   }
 
   clearInput(type: string) {
