@@ -2,6 +2,7 @@
   width: 300px;
   height: 30px;
   background: white;
+  display: inline-block;
 }
 
 #province > input {
