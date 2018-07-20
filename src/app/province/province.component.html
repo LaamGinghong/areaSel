@@ -1,3 +1,8 @@
-<p>
-  province works!
-</p>
+<div id="province">
+  <input [(ngModel)]="inputValue">
+  <div>
+    <ul>
+      <li *ngFor="let item of provinceData">{{item['name']}}</li>
+    </ul>
+  </div>
+</div>
